@@ -6,7 +6,7 @@ const config = {
     port : 3306, // mysql 서버는 기본적으로 3306 포트를 사용
     database : 'coronaboard',
     user : 'coronaboard_admin',
-    password : process.env.CORONABOARD_MYSQL_PASSWORD || '26634364',
+    password : process.env.CORONABOARD_MYSQL_PASSWORD || '4364',
 };
 
 //데이터베이스 연결 정보를 입력해 시퀄라이즈 인스턴스 생성

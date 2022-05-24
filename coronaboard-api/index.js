@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 //데이터 베이스 연결해 테이블 생성
 const {sequelize} = require('./database');
 
+const globalStatController = require('./controller/global-stat.controller');
+const keyValueController = require('./controller/key-value.controller')
+
 async function lanunchServer(){
     const app = express(); //
 
@@ -11,6 +14,14 @@ async function lanunchServer(){
     app.get('/', (req, res)=>{
      res.json(`스타트`)
     }); 
+
+    app.get('/global-stats', globalStatController.getAll);
+    app.post('/global-stats', globalStatController.insertOrUpdate);
+    app.delete('/global-stats', globalStatController.remove);
+
+    app.get('key-value/:key', keyValueController.get)
+    app.post('key-value', keyValueController.insertOrUpdate)
+    app.delete('key-value/:key', keyValueController.remove)
 
     try{
         await sequelize.sync();
