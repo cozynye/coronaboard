@@ -4,12 +4,8 @@ const {subDays} = require('date-fns'); // 날짜
 const { format, utcToZonedTime} = require('date-fns-tz'); // 시간 포매팅
 const countryInfo = require('../../tools/downloaded/countryInfo.json');
 
-console.error('여기22')
 async function getDataSource(){
-    console.error('여기')
     const countryByCc = _.keyBy(countryInfo, 'cc');
-    console.error('error')
-    console.log(countryByCc.KI)
     const globlalStats = await generateGlobalStats();
     return{
         globlalStats,
@@ -42,10 +38,7 @@ async function generateGlobalStats() {
       throw new Error('Data for today is missing');
     }
   
-    return createGlobalStatWithPrevField(
-      groupedByDate[today],
-      groupedByDate[yesterday],
-    );
+    return ;
   }
 
 

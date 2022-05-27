@@ -2,10 +2,8 @@ import React from "react"
 import {Slide} from '../components/slide'
 
 export default function SinglePage({pageContext}) {
-    console.log('pageContext')
-    console.log(pageContext)
-  const {dataSource} = pageContext;
-  const {countryByCc, globalStats} = dataSource;
+  // const {dataSource} = pageContext;
+  // const {countryByCc, globalStats} = dataSource;
   return (
     <div>
       
@@ -19,7 +17,7 @@ export default function SinglePage({pageContext}) {
       대한민국 지역별 현황을 보여줍니다
     </Slide>
 
-    <Slide title={thirdSlideTitle}>
+    <Slide title={'ㅁ'}>
       예방 행동 수칙을 보여줍니다.
     </Slide>
   </div>)
