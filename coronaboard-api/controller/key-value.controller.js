@@ -1,5 +1,19 @@
 const {KeyValue} = require('../database');
-const {wrapWithErrorhandler} = require('../util');
+const errorHandler = (block) => async(req,res) =>{
+    try{
+        await block(req,res);
+    } catch(e){
+        res.status(500).json({ error:e.toString()})
+    }
+};
+
+const wrapWithErrorHandler = obj =>{
+    Object.keys(obj).forEach((key)=>{
+        obj[key] = errorHandler(obj[key])
+    });
+    return obj;
+}
+
 
 async function get(req,res){
     const {key} = req.params;
@@ -28,7 +42,7 @@ async function insertOrUpdate(req,res){
 
 async function remove(req,res){
     const {key} = req.params;
-    f(!key){
+    if(!key){
         res.status(400).json({ error : 'key is required'});
         return;
     }
@@ -39,7 +53,7 @@ async function remove(req,res){
 
     res.status(200).json({ result: 'success'});
 }
-module.exports = wrapWithErrorhandler({
+module.exports = wrapWithErrorHandler({
     get,
     insertOrUpdate,
     remove,

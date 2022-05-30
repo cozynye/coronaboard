@@ -2,8 +2,12 @@ import React from "react"
 import {Slide} from '../components/slide'
 
 export default function SinglePage({pageContext}) {
-  // const {dataSource} = pageContext;
-  // const {countryByCc, globalStats} = dataSource;
+  const {dataSource} = pageContext;
+  const {countryByCc, globalStats} = dataSource;
+
+  console.log('dataSource')
+  console.log(pageContext)
+  console.log(globalStats)
   return (
     <div>
       

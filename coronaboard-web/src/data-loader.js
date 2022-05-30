@@ -5,6 +5,7 @@ const { format, utcToZonedTime} = require('date-fns-tz'); // 시간 포매팅
 const countryInfo = require('../../tools/downloaded/countryInfo.json');
 
 async function getDataSource(){
+  //cc를 키값으로 상세정보를 값으로 갖는 맵으로 가공
     const countryByCc = _.keyBy(countryInfo, 'cc');
     const globlalStats = await generateGlobalStats();
     return{
@@ -17,14 +18,13 @@ async function generateGlobalStats() {
 
     //http 클라이언트 생성
     const apiClient = axios.create({
-        baseURL: process.env.CB_API_BASE_URL || 'http://localhost:8080',
+        baseURL:'http://localhost:8080'
       });
-    // GET /global-stats API 호출
-    const response = await apiClient.get('global-stats');
 
+    // GET /global-stats API 호출 -page 210
+    const response = await apiClient.get('global-stats');
     // 날짜 기준 그룹핑
     const groupedByDate = _.groupBy(response.data.result, 'date');
-
 
     const now = new Date('2021-06-05');
     const timeZone = 'Asia/Seoul';
@@ -37,10 +37,19 @@ async function generateGlobalStats() {
     if (!groupedByDate[today]) {
       throw new Error('Data for today is missing');
     }
+
+    console.log(createGlobalStatWithPrevField(
+      groupedByDate[today],
+      groupedByDate[yesterday],
+    ))
   
-    return ;
+    return createGlobalStatWithPrevField(
+      groupedByDate[today],
+      groupedByDate[yesterday],
+    );
   }
 
+  generateGlobalStats()
 
   //오늘, 어제 데이터를 모두 가진 객체 생성
   function createGlobalStatWithPrevField(todayStats, yesterdayStats) {
