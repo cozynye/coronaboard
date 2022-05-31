@@ -7,9 +7,9 @@ const countryInfo = require('../../tools/downloaded/countryInfo.json');
 async function getDataSource(){
   //cc를 키값으로 상세정보를 값으로 갖는 맵으로 가공
     const countryByCc = _.keyBy(countryInfo, 'cc');
-    const globlalStats = await generateGlobalStats();
+    const globalStats = await generateGlobalStats();
     return{
-        globlalStats,
+      globalStats,
         countryByCc,
     };
 }

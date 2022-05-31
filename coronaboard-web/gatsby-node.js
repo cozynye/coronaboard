@@ -2,8 +2,7 @@ const { getDataSource } = require('./src/data-loader');
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
-  const dataSource = getDataSource();
-
+  const dataSource = await getDataSource();
 
   createPage({
     path: '/',
