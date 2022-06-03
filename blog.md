@@ -194,13 +194,13 @@ console.log(document.querySelectorAll('#test + input')) // NodeList [input.form-
 <br>
 
 ### 장점 
-##### 1. 정적으로 만들어진 React Application을 가장 쉽게 제공한다.
-##### 2. 새로운 Framework를 배울 필요 없이 Next.js에서 단 한 줄로 정적 페이지를 배포할 수 있다.
-##### 3. ‘styled-jsx’ 라이브러리를 제공할 뿐만 아니라 사용자들이 즐겨 사용하는 CSS-in-js Solution(styled-components, emotion 등)을 같이 사용할 수도 있다.
-##### 4. 자동 코드 분할, 파일에 기반한 Routing, Hot Reloading, SSG로 불리는 Universal Rendering을 사용자가 따로 설정할 필요 없이 사용 가능하다.
-##### 5. Babel과 Webpack을 컨트롤할 수 있으며, 맞춤형 서버와 Routing, next-plugin을 사용해서 완벽하게 확장할 수 있다.
-##### 6. 더 작은 빌드 용량을 위한 최적화를 제공하고 있으며, 향상을 위한 수십가지의 편의 기능을 제공하기 때문에 상용 친화적으로 개발이 가능하다.
-##### 7. SSR 뿐만 아니라 SSR도 지원
+#### 1. 정적으로 만들어진 React Application을 가장 쉽게 제공한다.
+#### 2. 새로운 Framework를 배울 필요 없이 Next.js에서 단 한 줄로 정적 페이지를 배포할 수 있다.
+#### 3. ‘styled-jsx’ 라이브러리를 제공할 뿐만 아니라 사용자들이 즐겨 사용하는 CSS-in-js Solution(styled-components, emotion 등)을 같이 사용할 수도 있다.
+#### 4. 자동 코드 분할, 파일에 기반한 Routing, Hot Reloading, SSG로 불리는 Universal Rendering을 사용자가 따로 설정할 필요 없이 사용 가능하다.
+#### 5. Babel과 Webpack을 컨트롤할 수 있으며, 맞춤형 서버와 Routing, next-plugin을 사용해서 완벽하게 확장할 수 있다.
+#### 6. 더 작은 빌드 용량을 위한 최적화를 제공하고 있으며, 향상을 위한 수십가지의 편의 기능을 제공하기 때문에 상용 친화적으로 개발이 가능하다.
+#### 7. SSR 뿐만 아니라 SSR도 지원
 
 
 > SSG
@@ -209,9 +209,9 @@ console.log(document.querySelectorAll('#test + input')) // NodeList [input.form-
 <br>
 
 ### 단점
-##### 1. 기본 지원 플러그인이 약간 불편하다.
-##### 2. SSR로 인한 라이브러리 호환성 이슈가 존재한다.
-##### 3. Gatsby에 비해 자동화가 부족하여 직접 Node 코드를 작성하는 경우가 많았다.
+#### 1. 기본 지원 플러그인이 약간 불편하다.
+#### 2. SSR로 인한 라이브러리 호환성 이슈가 존재한다.
+#### 3. Gatsby에 비해 자동화가 부족하여 직접 Node 코드를 작성하는 경우가 많았다.
 
 <br><br>
 
@@ -228,16 +228,16 @@ console.log(document.querySelectorAll('#test + input')) // NodeList [input.form-
 <br>
 
 ## 개츠비 장점
-##### 1. GraphQL을 기반으로 구축된 데이터 계층
-##### 2. 정적 페이지 생성과 지능형 페이지 렌더링을 결합하여 중요한 컨텐츠만 선택적으로 미리 로드하여 빠른 웹사이트를 제공한다.
-##### 3. Javascript, Git, CI/CD 등과 같은 도구와 웹 기술들이 결합 된 Gatsby는 유지 관리 및 최적화에 드는 개발자의 시간을 줄여준다.
-##### 4. 다양한 테마, 플러그인, 스타터가 존재하며, 이를 사용하여 간단하게 웹사이트를 구축할 수 있다.(ex. gatsby-starter-bee)
+#### 1. GraphQL을 기반으로 구축된 데이터 계층
+#### 2. 정적 페이지 생성과 지능형 페이지 렌더링을 결합하여 중요한 컨텐츠만 선택적으로 미리 로드하여 빠른 웹사이트를 제공한다.
+#### 3. Javascript, Git, CI/CD 등과 같은 도구와 웹 기술들이 결합 된 Gatsby는 유지 관리 및 최적화에 드는 개발자의 시간을 줄여준다.
+#### 4. 다양한 테마, 플러그인, 스타터가 존재하며, 이를 사용하여 간단하게 웹사이트를 구축할 수 있다.(ex. gatsby-starter-bee)
 
 <br>
 
 ## 단점
-##### 1. 웹페이지의 콘텐츠 내용이 변경될 때마다 다시 빌드하여 배포해야 하는 번거로움
-##### 2. 실시간으로 변경되는 데이터나, 게시판 같이 사용자들이 동적으로 만들어내는 컨텐츠를 보여주는 것에 최적화되어 있지는 않음
+#### 1. 웹페이지의 콘텐츠 내용이 변경될 때마다 다시 빌드하여 배포해야 하는 번거로움
+#### 2. 실시간으로 변경되는 데이터나, 게시판 같이 사용자들이 동적으로 만들어내는 컨텐츠를 보여주는 것에 최적화되어 있지는 않음
 
 <br><br>
 
