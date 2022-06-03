@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Container, Button, ButtonGroup, Card, Accordion, Alert, Dropdown} from 'react-bootstrap';
+import {Container, Button, ButtonGroup, Card, Accordion, Alert, Dropdown, Row, Col} from 'react-bootstrap';
 import Select from 'react-select';
+import { css } from '@emotion/react';
 
 const options = [
     {value:'KR', label : '한국'},
@@ -10,6 +11,16 @@ const options = [
     {value:'US', label : '미국'},
     {value:'CN', label : '중국'},
 ]
+
+const borderedGried = css`
+    text-align : center;
+    div{
+        background-color : rgba(39, 41, 43, 0.03);
+        border : 1px solid rgba(39, 41, 43, 0.1);
+        padding : 10px;
+        margin-bottom : 20px;
+    }
+`
 
 export default function ButtonPage(){
 
@@ -102,6 +113,8 @@ export default function ButtonPage(){
 
             </Container>
 
+            <br/><br/>
+
             <Container className='pt-3'>
                 <h1>react-select 라이브러리</h1>
                 <h3>단일 선택 상자</h3>
@@ -128,6 +141,75 @@ export default function ButtonPage(){
                 />
             </Container>
 
+            <br/><br/>
+
+            <div className='pt-3' css={borderedGried}>
+                    <h2>화면 너비에 따른 컨테이너 너비 비교</h2>
+                    <Container>.Container</Container>
+                    <Container fluid="sm">.Container-sm</Container>
+                    <Container fluid="md">.Container-md</Container>
+                    <Container fluid="lg">.Container-lg</Container>
+                    <Container fluid="xl">.Container-xl</Container>
+                    <Container fluid="fluid">.Container-fluid</Container>
+
+                    <br/>
+
+                    <Container>
+                <Row>
+                    <Col lg>col 1/2</Col>
+                    <Col lg>col 2/2</Col>
+                </Row>
+                <Row>
+                    <Col sm>col 1/3</Col>
+                    <Col sm>col 2/3</Col>
+                    <Col sm>col 3/3</Col>
+                </Row>
+
+                <Row>
+                    <Col xs={3}>col-3 1/3</Col>
+                    <Col xs={6}>col-6 2/3</Col>
+                    <Col xs={3}>col-3 3/3</Col>
+                </Row>
+
+                <Row>
+                    <Col xs={3} sm={2}>1/3</Col>
+                    <Col xs={6} sm={8}>2/3</Col>
+                    <Col xs={3} sm={2}>3/3</Col>
+                </Row>
+            </Container>
+            </div>
+
+            <br/><br/>
+
+            <div className='pt-3' css={borderedGried}>
+                <Container>
+                    <h2>전 세계</h2>
+                    <Row>
+                        <Col xs={4} md>확진자</Col>
+                        <Col xs={4} md>사망자</Col>
+                        <Col xs={4} md>격리해제</Col>
+                        <Col xs={6} md>치명률</Col>
+                        <Col xs={6} md>발생국</Col>
+                    </Row> 
+ 
+                    <h2>대한민국</h2>
+                    <Row> 
+                        <Col xs={3} md>확진자</Col>
+                        <Col xs={3} md>사망자</Col>
+                        <Col xs={3} md>격리해제</Col>
+                        <Col xs={3} md>치명률</Col>
+                        <Col xs={4} md>총검사자</Col>
+                        <Col xs={4} md>검사중</Col>
+                        <Col xs={4} md>결과음성</Col>
+                    </Row>
+                </Container>
+            </div>
+            <br/><br/>
+            
+
+
+
+            <br/><br/>
         </div>
     )
 }
