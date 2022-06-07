@@ -2,7 +2,7 @@
 
 **코로나 보드로 배우는 실전 웹 서비스 개발**이라는 책을 통해 크롤러, 서버, 정적 웹사이트, 데이터베이스에 대해 공부
 
-<br>
+<br><br>
 
 ---
 
@@ -29,6 +29,7 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 
 -> 개발 서버 실행 후 개츠비 develop 시 오류 안난다.
 
+<br>
 
 ### 2. 현재 프론트 단에서 데이터가 나오지 않음
 소스 한번 다시 훑어보자
@@ -36,6 +37,7 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 1. gatsby-node.js 에서 데이터는 받아온다.
 2. gatsby clean으로 캐시 삭제 후 실행 됨
 
+<br>
 
 ### echart.js 파일에서 함수를 불러오지 못함
 /Users/pc/Desktop/project/coronaboard/coronaboard-web/src/pages/chart/bar.js
@@ -48,7 +50,7 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 
 
 ---
-<br>
+<br><br>
 
 ## mysql
 1. mysql 접속
@@ -60,7 +62,7 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 
 
 ---
-<br>
+<br><br>
 
 ## 데이터 차트
 
@@ -68,8 +70,7 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 - 구글에서 지도에 데이터를 시각화하여 표현하는 지오차트를 제공
 - 지오차트의 기능을 이용해 데이터를 컬러에 매핑해서 시각적인 분석을 도와주는 데이터 시각화 기법 사용 가능
 
-<img src="./coronaboard-web/public/geocharts1.png" style='width:80%'>
-<img src="./coronaboard-web/public/geocharts2.png" style='width:80%'>
+<br>
 
 ### 아파치 이차트
 - 구글 차트에 비해 더 다양한 차트들을 제공(예제 포함)
@@ -81,8 +82,15 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 
 ## 참고
 > https://getbootstrap.com/docs/5.2/getting-started/introduction/
+
 > https://react-bootstrap.netlify.app/
+
 > https://developers.google.com/chart/interactive/docs
+
 > https://ko.wikipedia.org/wiki/ISO_3166-2:KR
+
 > https://echarts.apache.org/examples/en/index.html
+
 > https://echarts.apache.org/en/option.html#title
+
+> https://regex101.com/
