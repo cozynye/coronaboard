@@ -3,29 +3,29 @@ const axios = require('axios'); // http 클라이언트
 const {subDays} = require('date-fns'); // 날짜
 const { format, utcToZonedTime} = require('date-fns-tz'); // 시간 포매팅
 const countryInfo = require('../../tools/downloaded/countryInfo.json');
+const ApiClient = require('./api-client');
 
 async function getDataSource(){
   //cc를 키값으로 상세정보를 값으로 갖는 맵으로 가공
     const countryByCc = _.keyBy(countryInfo, 'cc');
-    const globalStats = await generateGlobalStats();
+    const apiClient = new ApiClient();
+    
+    const allGlobalStats = await apiClient.getAllGlobalStats();
+
+    const groupedByDate = _.groupBy(allGlobalStats, 'date');
+    const globalStats = generateGlobalStats(groupedByDate)
+    console.log(globalStats)
+    console.log('globalStats')
     return{
+      lastUpdated : Date.now(),
       globalStats,
-        countryByCc,
+      countryByCc,
     };
 }
 
-async function generateGlobalStats() {
+  function generateGlobalStats(groupedByDate) {
 
-    //http 클라이언트 생성
-    const apiClient = axios.create({
-        baseURL:'http://localhost:8080'
-      });
-
-    // GET /global-stats API 호출 -page 210
-    const response = await apiClient.get('global-stats');
-    // 날짜 기준 그룹핑
-    const groupedByDate = _.groupBy(response.data.result, 'date');
-
+   
     const now = new Date('2021-06-05');
     const timeZone = 'Asia/Seoul';
     const today = format(utcToZonedTime(now, timeZone), 'yyyy-MM-dd');
@@ -37,11 +37,6 @@ async function generateGlobalStats() {
     if (!groupedByDate[today]) {
       throw new Error('Data for today is missing');
     }
-
-    console.log(createGlobalStatWithPrevField(
-      groupedByDate[today],
-      groupedByDate[yesterday],
-    ))
   
     return createGlobalStatWithPrevField(
       groupedByDate[today],
@@ -49,11 +44,8 @@ async function generateGlobalStats() {
     );
   }
 
-  generateGlobalStats()
-
   //오늘, 어제 데이터를 모두 가진 객체 생성
   function createGlobalStatWithPrevField(todayStats, yesterdayStats) {
-
     //어제 데이터를 국가 코드 기준으로 변환
     const yesterdayStatsByCc = _.keyBy(yesterdayStats, 'cc');
   
