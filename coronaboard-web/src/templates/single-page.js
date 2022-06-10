@@ -2,10 +2,10 @@ import React from "react"
 import { css } from "@emotion/react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Dashboard } from "../components/dashboard";
+import { GlobalSlide } from "../components/global-slide";
+import { GlobalChartSlide } from "../components/global-chart-slide";
 
 export default function SinglePage({ pageContext }) {
-  console.log('pageContext')
-  console.log(pageContext)
   const { dataSource } = pageContext;
   const {lastUpdated, globalStats} = dataSource;
 
@@ -41,6 +41,8 @@ console.log(dataSource)
             마지막 업데이트 : {lastUpdatedFormatted}
           </p>
           <Dashboard globalStats={globalStats}/>
+          <GlobalSlide id="global-slide" dataSource={dataSource}/>
+          <GlobalChartSlide id="global-chart-slide" dataSource={dataSource}/>
      </div>
   )
 }
