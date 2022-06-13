@@ -27,6 +27,7 @@ async function lanunchServer(){
         await sequelize.sync();
         console.log('Database is ready');
     }catch(error){
+        console.log('서버에러')
         console.log(`error : ${error}`)
         process.exit(1);
     }

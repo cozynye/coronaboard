@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Dashboard } from "../components/dashboard";
 import { GlobalSlide } from "../components/global-slide";
 import { GlobalChartSlide } from "../components/global-chart-slide";
+import { KoreaChartSlide } from "../components/korea-chart-slide";
 
 export default function SinglePage({ pageContext }) {
   const { dataSource } = pageContext;
@@ -11,8 +12,7 @@ export default function SinglePage({ pageContext }) {
 
 
   const lastUpdatedFormatted = new Date(lastUpdated).toLocaleDateString();
-console.log('dataSource')
-console.log(dataSource)
+console.log('single-page');
   return (
     <div id='top'>
       <div
@@ -43,6 +43,8 @@ console.log(dataSource)
           <Dashboard globalStats={globalStats}/>
           <GlobalSlide id="global-slide" dataSource={dataSource}/>
           <GlobalChartSlide id="global-chart-slide" dataSource={dataSource}/>
+          {/* <KoreaChartSlide id="korea-chart-slide" dataSource={dataSource}/> */}
+          
      </div>
   )
 }

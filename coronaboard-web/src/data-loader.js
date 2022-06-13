@@ -18,6 +18,10 @@ async function getDataSource(){
     const groupedByDate = _.groupBy(allGlobalStats, 'date');
     const globalStats = generateGlobalStats(groupedByDate);
   const globalChartDataByCc = generateGlobalChartDataByCc(groupedByDate);
+  const koreaTestChartData = generateKoreaTestChartData(allGlobalStats);
+console.log('애렄')
+// const {byAge, bySex} = await apiClient.getByAgeAndBySex();
+console.log('애렄22')
 
   Object.keys(globalChartDataByCc).forEach((cc) => {
     const genPath = path.join(process.cwd(), `static/generated/${cc}.json`);
@@ -29,7 +33,22 @@ async function getDataSource(){
       globalStats,
       countryByCc,
       //notice : notice.filter((x)=>!x.hidden)
+      // koreaTestChartData,
+      // koreaBySexChartData : bySex,
+      // koreaByAgeChartData : byAge,
     };
+}
+
+function generateKoreaTestChartData(allGlobalStats){
+  const krData = allGlobalStats.filter((x)=> x.cc === 'KR');
+
+  return {
+    date: krData.map((x) => x.date),
+    confirmedRate: krData.map((x) => x.confirmed / (x.confirmed + x.negative)),
+    confirmed: krData.map((x) => x.confirmed),
+    negative: krData.map((x) => x.negative),
+    testing: krData.map((x) => x.testing),
+  };
 }
 
   function generateGlobalStats(groupedByDate) {

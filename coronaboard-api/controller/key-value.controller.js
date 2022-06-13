@@ -25,6 +25,7 @@ async function get(req,res){
     const result = await KeyValue.findOne({
         where : {key},
     });
+    console.log(`key-value controller is get function result = ${result}`)
     res.status(200).json({result});
 }
 

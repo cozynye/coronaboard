@@ -18,6 +18,13 @@ class ApiClient {
     const response = await this.client.get('global-stats');
     return response.result;
   }
+
+  async getByAgeAndBySex() {
+    console.log('dddfasd')
+    const response = await this.client.get(`key-value/byAgeAndSex`);
+    console.log('dddfasd2222')
+    return JSON.parse(response.result.value);
+  }
 }
 
 

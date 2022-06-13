@@ -39,13 +39,41 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 
 <br>
 
-### echart.js 파일에서 함수를 불러오지 못함
+### 3. echart.js 파일에서 함수를 불러오지 못함
 /Users/pc/Desktop/project/coronaboard/coronaboard-web/src/pages/chart/bar.js
 
   54:12  error  'Echart' is not defined  react/jsx-no-undef
 
 -> import 할 때 함수명은 Echart 였는데 import {EChart} from '../../components/echart';이렇게 함으로써 에러생겼음
 -> 대소문자 구분 잘해야한다.!
+
+<br>
+
+### 4. generateGlobalStats 코드 수정 중 데이터 오류
+함수 수정 하면서 async 키워드를 지웠어야 했음
+
+async 키워드가 붙으면서 promise가 반환되어 데이터 오류가 생김
+
+!!! async 키워드가 필요 없으면 지웠어야 했는데 그대로 두어 promise 객체 반환해 데이터 오류 !
+
+
+<br>
+
+### p.372 국내  검사 차트 빌드 중 오류
+
+어떠한 오류인지 찾을 수가 없음
+
+```
+ ERROR #11321  PLUGIN
+
+"gatsby-node.js" threw an error while running the createPages lifecycle:
+
+Request failed with status code 404
+```
+
+새로 추가한 소스의 문제인지 데이터베이스의 문제인지 알아봐야 함
+
+api-client.js의 **const response = await this.client.get(`key-value/byAgeAndSex`);**에서 문제 생긴것 같음
 
 
 
@@ -76,6 +104,16 @@ Error: connect ECONNREFUSED 127.0.0.1:8080
 - 구글 차트에 비해 더 다양한 차트들을 제공(예제 포함)
 - 데이터 줌 기능 제공
 > https://echarts.apache.org/examples/en/index.html
+
+---
+<br><br>
+
+### coronaboard-web에서 노드 런타임, 브라우저 런타임
+||빌드 서버에서 웹사이트 빌드 시점에 실행되는 코드|사용자 웹브라우저에서 실행되는 코드|
+|---|---|---|
+|파일|- gatsby-node.js, data-loader.js, api-client.js|single-page.js, [src/pages]|
+|사용 가능한 기능|노드 런타임 라이브러리 사용 가능|웹브라우저에 내장된 전역 객체 사용 가능|
+
 
 ---
 <br><br>
