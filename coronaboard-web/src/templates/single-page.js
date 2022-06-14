@@ -5,10 +5,12 @@ import { Dashboard } from "../components/dashboard";
 import { GlobalSlide } from "../components/global-slide";
 import { GlobalChartSlide } from "../components/global-chart-slide";
 import { KoreaChartSlide } from "../components/korea-chart-slide";
+import { Navigation } from "../components/navigation";
+import { Notice } from "../components/notice";
 
 export default function SinglePage({ pageContext }) {
   const { dataSource } = pageContext;
-  const {lastUpdated, globalStats} = dataSource;
+  const {lastUpdated, globalStats, notice} = dataSource;
 
 
   const lastUpdatedFormatted = new Date(lastUpdated).toLocaleDateString();
@@ -41,6 +43,8 @@ console.log('single-page');
             마지막 업데이트 : {lastUpdatedFormatted}
           </p>
           <Dashboard globalStats={globalStats}/>
+          {/* <Notice notice={notice} /> */}
+          <Navigation/>
           <GlobalSlide id="global-slide" dataSource={dataSource}/>
           <GlobalChartSlide id="global-chart-slide" dataSource={dataSource}/>
           {/* <KoreaChartSlide id="korea-chart-slide" dataSource={dataSource}/> */}
